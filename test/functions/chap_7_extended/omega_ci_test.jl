@@ -14,4 +14,14 @@
 
   @test isapprox(expected_value, actual_value, rtol=1e-2)
 
+  expected_value = 2.4e8
+
+  cur_species = Plasmas.Species(Plasmas.deuteron, 0u"n20", 15u"keV")
+
+  actual_value = Plasmas.omega_ci(cur_species, 5u"T")
+
+  actual_value *= 1u"s"
+
+  @test isapprox(expected_value, actual_value, rtol=1e-2)
+
 end
