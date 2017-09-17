@@ -41,4 +41,6 @@ script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone(pwd());'
   - (echo "y" && echo "Plasmas Test" && echo "danSegal2@gmail.com" && echo "Plasmas Test" && echo "n" && yes && cat) | julia -e 'using PkgDev; PkgDev.config();'
+  - julia -e 'Pkg.checkout("Julz");'
+  - julia -e 'ENV["PYTHON"]=""; Pkg.build("PyCall");'
   - julia -e 'Pkg.build("Plasmas"); Pkg.test("Plasmas"; coverage=true)'
