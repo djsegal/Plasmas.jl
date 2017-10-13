@@ -14,10 +14,12 @@ append!(symbol_list, ["x", "y", "z", "t"])
 append!(symbol_list, ["E_x", "E_y", "E_z", "E_t"])
 append!(symbol_list, ["B_x", "B_y", "B_z", "B_t"])
 
-append!(symbol_list, ["v_perp", "v_para"])
+append!(symbol_list, ["v_perp", "v_para", "v_0"])
 append!(symbol_list, ["E_perp", "E_para"])
 
 append!(symbol_list, ["theta", "phi"])
+
+append!(symbol_list, ["omega_c_0", "omega_p_0"])
 
 symbol_dict = Dict()
 for cur_symbol in symbol_list
@@ -57,8 +59,13 @@ B_t = symbol_dict["B_t"] * 1u"T"
 v_perp = symbol_dict["v_perp"] * 1u"m/s"
 v_para = symbol_dict["v_para"] * 1u"m/s"
 
+v_0 = symbol_dict["v_0"] * 1u"m/s"
+
 E_perp = symbol_dict["E_perp"] * 1u"V/m"
 E_para = symbol_dict["E_para"] * 1u"V/m"
 
 theta = symbol_dict["theta"]
 phi = symbol_dict["phi"]
+
+omega_c_0 = symbol_dict["omega_c_0"] * 1u"1/s"
+omega_p_0 = symbol_dict["omega_p_0"] * 1u"1/s"

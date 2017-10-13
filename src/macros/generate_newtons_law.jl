@@ -7,6 +7,8 @@ macro generate_newtons_law(cur_particle=dummy, cur_E=E, cur_B=B)
   quote
     function (t, u, du)
       if eltype(u) == SymPy.Sym
+        map!(cur_u -> default_subs(cur_u), u)
+
         r, v = copy(u[1:3]), copy(u[4:6])
         du = Array{Any}(6)
       else
@@ -48,6 +50,12 @@ macro generate_newtons_law(cur_particle=dummy, cur_E=E, cur_B=B)
 
       for cur_index in 4:6
         du[cur_index] = du[cur_index] |> NoUnits
+
+        du[cur_index] = SymPy.subs(
+          du[cur_index],
+          ( Plasmas.omega_c(dummies) * 1u"s" ),
+          symbol_dict["omega_c_0"]
+        )
       end
 
       du
