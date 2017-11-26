@@ -2,6 +2,7 @@ using Unitful
 using Unitful.DefaultSymbols
 
 cd = Base.cd
+C = SymPy.C
 
 eps_0 = Unitful.ϵ0
 mu_0 = uconvert(u"T*m/MA", Unitful.μ0)
