@@ -1,5 +1,6 @@
 module Plasmas
   import Julz
+  using OrdinaryDiffEq
 
   cd("$(dirname(@__FILE__))/..") do
     include("../config/bootload.jl")

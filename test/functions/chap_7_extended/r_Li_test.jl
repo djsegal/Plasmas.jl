@@ -20,11 +20,9 @@
 
   cur_species = Plasmas.Species(Plasmas.deuteron, 0u"n20", 15u"keV")
 
-  actual_value = Plasmas.r_Li(cur_species)
+  actual_value = Plasmas.r_Li(cur_species, 5u"T"))
 
   actual_value /= 1u"m"
-
-  actual_value = SymPy.subs(actual_value, Plasmas.symbol_dict["B_0"] => 5)
 
   @test isapprox(expected_value, actual_value, rtol=1e-2)
 

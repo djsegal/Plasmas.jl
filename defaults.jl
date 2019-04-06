@@ -1,9 +1,9 @@
-symbol_list = []
+default_values = Dict()
 
-append!(symbol_list, ["B_0"])
+default_values[symbol_dict["B_0"]] = 15.0
 
-for cur_symbol in symbol_list
-  symbol_dict[cur_symbol] = symbols(cur_symbol, positive=true)
-end
+default_values[symbol_dict["v_0"]] = 1.0
 
-B_0 = symbol_dict["B_0"] * 1u"T"
+default_values[symbol_dict["phi"]] = 0.0
+
+default_values["v_para_frac"] = 1.0 / sqrt(2)

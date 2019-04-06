@@ -2,3 +2,4 @@ julia 0.6
 Julz 0.1
 Unitful
 SymPy
+DifferentialEquations

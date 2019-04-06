@@ -14,4 +14,14 @@
 
   @test isapprox(expected_value, actual_value, rtol=1e-2)
 
+  expected_value = 8.8e11
+
+  cur_species = Plasmas.Species(Plasmas.electron, 0u"n20", 15u"keV")
+
+  actual_value = Plasmas.omega_ce(cur_species, 5u"T")
+
+  actual_value *= 1u"s"
+
+  @test isapprox(expected_value, actual_value, rtol=1e-2)
+
 end
